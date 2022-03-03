@@ -23,7 +23,7 @@ def create_masks(src, trg, opt):
         if trg.is_cuda:
             np_mask.cuda()
             trg_mask.cuda()
-        trg_mask = trg_mask & np_mask
+        trg_mask = trg_mask.cuda() & np_mask.cuda()
         
     else:
         trg_mask = None
