@@ -90,7 +90,7 @@ def main():
     opt.device = 0 if opt.no_cuda is False else -1
     if opt.device == 0:
         assert torch.cuda.is_available()
-        torch.cuda.set_device('cuda')
+        torch.cuda.set_device('cuda:0')
     
     read_data(opt)
     SRC, TRG = create_fields(opt)
